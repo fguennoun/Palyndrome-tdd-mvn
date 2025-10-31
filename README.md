@@ -1,198 +1,3 @@
-    return simplified.equals(reversed);
-}
-
-public static String simplifyString(String str) {
-    if (str == null) {
-        return "";
-    }
-    return str.toLowerCase().replaceAll("[^a-z0-9]", "");
-}
-```
-✅ Les tests passent maintenant.
-
----
-
-## 🏗️ Structure du projet
-
-```
-Palyndrome-tdd-mvn/
-├── pom.xml                          # Configuration Maven
-├── README.md                        # Ce fichier
-├── TDD-GUIDE.md                     # Guide détaillé sur le TDD
-├── EXAMPLES.md                      # Exemples d'utilisation
-├── CONTRIBUTING.md                  # Guide de contribution
-├── CHANGELOG.md                     # Historique des modifications
-├── PROJECT-STRUCTURE.md             # Description complète du projet
-└── src/
-    ├── main/
-    │   └── java/
-    │       └── be/cm/palyndrometdd/
-    │           ├── Main.java                    # Point d'entrée
-    │           └── PalindromeVerifier.java      # Classe principale
-    └── test/
-        └── java/
-            └── be/cm/palyndrometdd/
-                └── PalindromeVerifierTest.java  # Tests JUnit 5
-```
-
----
-
-## 📚 Documentation Complète
-
-Ce projet contient une documentation extensive pour vous aider à comprendre et appliquer le TDD :
-
-| Fichier | Description | Public cible |
-|---------|-------------|--------------|
-| **README.md** | Vue d'ensemble du projet et introduction au TDD | Tous |
-| **TDD-GUIDE.md** | Guide approfondi avec étapes détaillées du TDD | Apprenants TDD |
-| **EXAMPLES.md** | 20+ exemples d'utilisation pratiques | Développeurs |
-| **CONTRIBUTING.md** | Guide pour contribuer au projet | Contributeurs |
-| **CHANGELOG.md** | Historique des versions et modifications | Tous |
-| **PROJECT-STRUCTURE.md** | Description détaillée de la structure | Nouveaux arrivants |
-
----
-
-## 🚀 Lancement du projet
-
-### Prérequis
-- Java 21 ou supérieur
-- Maven 3.6+
-
-### Compilation
-```bash
-mvn clean compile
-```
-
-### Exécution des tests
-```bash
-mvn test
-```
-
-### Exécution de l'application
-```bash
-mvn exec:java -Dexec.mainClass="be.cm.palyndrometdd.Main"
-```
-
----
-
-## 🧪 Couverture des tests
-
-Le projet contient **20+ tests** couvrant :
-
-### ✅ Palindromes valides
-- Palindromes simples (`kayak`, `racecar`, `radar`)
-- Palindromes complexes avec ponctuation (`A man, a plan, a canal: Panama`)
-- Palindromes numériques (`12321`)
-- Palindromes alphanumériques (`A1B2C2B1A`)
-- Cas limites (chaîne vide, un seul caractère)
-
-### ❌ Non-palindromes
-- Chaînes ordinaires (`hello`, `world`)
-- Presque palindromes (`raceca`)
-
-### ⚠️ Gestion des erreurs
-- Valeur `null` → `IllegalArgumentException`
-
-### 🔧 Tests unitaires de `simplifyString`
-- Conversion en minuscules
-- Suppression des caractères spéciaux
-- Gestion de null et chaînes vides
-
----
-
-## 📊 Avantages du TDD observés dans ce projet
-
-| Avantage | Impact sur le projet |
-|----------|---------------------|
-| **Couverture de code** | 100% des méthodes publiques testées |
-| **Détection précoce des bugs** | Problèmes de null détectés avant production |
-| **Documentation** | Les tests expliquent comment utiliser la classe |
-| **Confiance dans le refactoring** | Changements sûrs grâce aux tests |
-| **Design propre** | API claire définie par les tests |
-
----
-
-## 🎓 Bonnes pratiques TDD appliquées
-
-1. ✅ **Tests nommés clairement** : `methodName_scenario_expectedResult`
-2. ✅ **Arrange-Act-Assert** : Structure given-when-then dans chaque test
-3. ✅ **Un test = Un concept** : Chaque test vérifie un seul comportement
-4. ✅ **Tests paramétrés** : Utilisation de `@ParameterizedTest` pour réduire la duplication
-5. ✅ **Isolation** : Chaque test est indépendant
-6. ✅ **Tests rapides** : Exécution en millisecondes
-7. ✅ **Messages clairs** : Les assertions sont explicites
-
----
-
-## 🔍 Commandes Maven utiles
-
-```bash
-# Compiler le projet
-mvn compile
-
-# Exécuter tous les tests
-mvn test
-
-# Exécuter un test spécifique
-mvn test -Dtest=PalindromeVerifierTest#isPalindrome_ClassicPalindrome_true
-
-# Générer un rapport de couverture (avec JaCoCo)
-mvn jacoco:report
-
-# Nettoyer et reconstruire
-mvn clean install
-
-# Vérifier le style de code (avec Checkstyle)
-mvn checkstyle:check
-```
-
----
-
-## 📚 Ressources pour approfondir le TDD
-
-- 📖 **Livre** : "Test Driven Development: By Example" - Kent Beck
-- 🎥 **Vidéo** : "TDD Changed My Life" - Eric Elliott
-- 🌐 **Article** : [Martin Fowler - TDD](https://martinfowler.com/bliki/TestDrivenDevelopment.html)
-- 💻 **Kata** : [Cyber-Dojo](https://cyber-dojo.org) pour pratiquer le TDD
-
----
-
-## 📈 Prochaines étapes
-
-Pour aller plus loin avec ce projet :
-
-1. ✨ Ajouter la prise en charge des accents (é, è, ê)
-2. 🌍 Internationalisation des messages d'erreur
-3. 📊 Intégration de JaCoCo pour la couverture de code
-4. 🔄 CI/CD avec GitHub Actions
-5. 📦 Créer une API REST autour de cette fonctionnalité
-6. 🎨 Interface graphique avec JavaFX
-
----
-
-## 👨‍💻 Auteur
-
-Projet développé dans le cadre d'une formation sur le TDD avec Java et Maven.
-
----
-
-## 📄 Licence
-
-Ce projet est à des fins éducatives. Libre d'utilisation et de modification.
-
----
-
-## 💡 Conclusion
-
-Le TDD n'est pas seulement une technique de test, c'est une **discipline de conception**. En écrivant les tests d'abord :
-- Vous réfléchissez à l'interface avant l'implémentation
-- Vous créez un code plus modulaire et testable
-- Vous documentez le comportement attendu
-- Vous gagnez en confiance pour faire évoluer votre code
-
-**"Le code sans test est du code legacy par définition"** - Michael Feathers
-
-🎯 **Pratiquez le TDD régulièrement pour en faire une seconde nature !**
 # 🔄 Palindrome Verifier - Projet TDD (Test-Driven Development)
 
 ## 📋 Description
@@ -378,4 +183,198 @@ public static boolean isPalindrome(String str) {
     }
     
     final var reversed = new StringBuilder(simplified).reverse().toString();
+    return simplified.equals(reversed);
+}
+
+public static String simplifyString(String str) {
+    if (str == null) {
+        return "";
+    }
+    return str.toLowerCase().replaceAll("[^a-z0-9]", "");
+}
+```
+✅ Les tests passent maintenant.
+
+---
+
+## 🏗️ Structure du projet
+
+```
+Palyndrome-tdd-mvn/
+├── pom.xml                          # Configuration Maven
+├── README.md                        # Ce fichier
+├── TDD-GUIDE.md                     # Guide détaillé sur le TDD
+├── EXAMPLES.md                      # Exemples d'utilisation
+├── CONTRIBUTING.md                  # Guide de contribution
+├── CHANGELOG.md                     # Historique des modifications
+├── PROJECT-STRUCTURE.md             # Description complète du projet
+└── src/
+    ├── main/
+    │   └── java/
+    │       └── be/cm/palyndrometdd/
+    │           ├── Main.java                    # Point d'entrée
+    │           └── PalindromeVerifier.java      # Classe principale
+    └── test/
+        └── java/
+            └── be/cm/palyndrometdd/
+                └── PalindromeVerifierTest.java  # Tests JUnit 5
+```
+
+---
+
+## 📚 Documentation Complète
+
+Ce projet contient une documentation extensive pour vous aider à comprendre et appliquer le TDD :
+
+| Fichier | Description | Public cible |
+|---------|-------------|--------------|
+| **README.md** | Vue d'ensemble du projet et introduction au TDD | Tous |
+| **TDD-GUIDE.md** | Guide approfondi avec étapes détaillées du TDD | Apprenants TDD |
+| **EXAMPLES.md** | 20+ exemples d'utilisation pratiques | Développeurs |
+| **CONTRIBUTING.md** | Guide pour contribuer au projet | Contributeurs |
+| **CHANGELOG.md** | Historique des versions et modifications | Tous |
+| **PROJECT-STRUCTURE.md** | Description détaillée de la structure | Nouveaux arrivants |
+
+---
+
+## 🚀 Lancement du projet
+
+### Prérequis
+- Java 21 ou supérieur
+- Maven 3.6+
+
+### Compilation
+```bash
+mvn clean compile
+```
+
+### Exécution des tests
+```bash
+mvn test
+```
+
+### Exécution de l'application
+```bash
+mvn exec:java -Dexec.mainClass="be.cm.palyndrometdd.Main"
+```
+
+---
+
+## 🧪 Couverture des tests
+
+Le projet contient **20+ tests** couvrant :
+
+### ✅ Palindromes valides
+- Palindromes simples (`kayak`, `racecar`, `radar`)
+- Palindromes complexes avec ponctuation (`A man, a plan, a canal: Panama`)
+- Palindromes numériques (`12321`)
+- Palindromes alphanumériques (`A1B2C2B1A`)
+- Cas limites (chaîne vide, un seul caractère)
+
+### ❌ Non-palindromes
+- Chaînes ordinaires (`hello`, `world`)
+- Presque palindromes (`raceca`)
+
+### ⚠️ Gestion des erreurs
+- Valeur `null` → `IllegalArgumentException`
+
+### 🔧 Tests unitaires de `simplifyString`
+- Conversion en minuscules
+- Suppression des caractères spéciaux
+- Gestion de null et chaînes vides
+
+---
+
+## 📊 Avantages du TDD observés dans ce projet
+
+| Avantage | Impact sur le projet |
+|----------|---------------------|
+| **Couverture de code** | 100% des méthodes publiques testées |
+| **Détection précoce des bugs** | Problèmes de null détectés avant production |
+| **Documentation** | Les tests expliquent comment utiliser la classe |
+| **Confiance dans le refactoring** | Changements sûrs grâce aux tests |
+| **Design propre** | API claire définie par les tests |
+
+---
+
+## 🎓 Bonnes pratiques TDD appliquées
+
+1. ✅ **Tests nommés clairement** : `methodName_scenario_expectedResult`
+2. ✅ **Arrange-Act-Assert** : Structure given-when-then dans chaque test
+3. ✅ **Un test = Un concept** : Chaque test vérifie un seul comportement
+4. ✅ **Tests paramétrés** : Utilisation de `@ParameterizedTest` pour réduire la duplication
+5. ✅ **Isolation** : Chaque test est indépendant
+6. ✅ **Tests rapides** : Exécution en millisecondes
+7. ✅ **Messages clairs** : Les assertions sont explicites
+
+---
+
+## 🔍 Commandes Maven utiles
+
+```bash
+# Compiler le projet
+mvn compile
+
+# Exécuter tous les tests
+mvn test
+
+# Exécuter un test spécifique
+mvn test -Dtest=PalindromeVerifierTest#isPalindrome_ClassicPalindrome_true
+
+# Générer un rapport de couverture (avec JaCoCo)
+mvn clean test jacoco:report
+
+# Voir le rapport de couverture
+# Ouvrir target/site/jacoco/index.html dans un navigateur
+
+# Nettoyer et reconstruire
+mvn clean install
+```
+
+---
+
+## 📚 Ressources pour approfondir le TDD
+
+- 📖 **Livre** : "Test Driven Development: By Example" - Kent Beck
+- 🎥 **Vidéo** : "TDD Changed My Life" - Eric Elliott
+- 🌐 **Article** : [Martin Fowler - TDD](https://martinfowler.com/bliki/TestDrivenDevelopment.html)
+- 💻 **Kata** : [Cyber-Dojo](https://cyber-dojo.org) pour pratiquer le TDD
+
+---
+
+## 📈 Prochaines étapes
+
+Pour aller plus loin avec ce projet :
+
+1. ✨ Ajouter la prise en charge des accents (é, è, ê)
+2. 🌍 Internationalisation des messages d'erreur
+3. 🔄 CI/CD avec GitHub Actions
+4. 📦 Créer une API REST autour de cette fonctionnalité
+5. 🎨 Interface graphique avec JavaFX
+
+---
+
+## 👨‍💻 Auteur
+
+Projet développé dans le cadre d'une formation sur le TDD avec Java et Maven.
+
+---
+
+## 📄 Licence
+
+Ce projet est à des fins éducatives. Libre d'utilisation et de modification.
+
+---
+
+## 💡 Conclusion
+
+Le TDD n'est pas seulement une technique de test, c'est une **discipline de conception**. En écrivant les tests d'abord :
+- Vous réfléchissez à l'interface avant l'implémentation
+- Vous créez un code plus modulaire et testable
+- Vous documentez le comportement attendu
+- Vous gagnez en confiance pour faire évoluer votre code
+
+**"Le code sans test est du code legacy par définition"** - Michael Feathers
+
+🎯 **Pratiquez le TDD régulièrement pour en faire une seconde nature !**
 
